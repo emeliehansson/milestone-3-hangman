@@ -9,6 +9,10 @@ def welcome_message():
     print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█   ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
     print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░   ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
 
+    print('Press 1 to start new game')
+    print('Press 2 for the rules')
+    print('Press 3 to choose difficulty(easy,medium,hard)')
+
 def hangman_lives(lives):
     """
     Hangman images that changes if/when the player guesses the wrong letter"
@@ -107,3 +111,5 @@ def hangman_lives(lives):
     ]
 
     return hangman_lives(lives)
+
+main()
