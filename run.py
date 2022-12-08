@@ -20,9 +20,7 @@ def welcome_message():
     print('Press 3 to choose difficulty(easy,medium,hard)')
 
 
-def get_word():
-    word = random.choice(word_list)
-    return word.upper()
+print(welcome_message)
 
 
 def display_hangman(tries):
@@ -134,3 +132,24 @@ def display_hangman(tries):
         """
     ]
     return stages[tries]
+
+
+def play_options():
+    """
+    Startup view, shows the "are you ready to play hangman?!" text and 
+    also gives the player the different options to choose from.
+    """
+    print(welcome_message())
+
+
+def get_word():
+    word = random.choice(word_list)
+    return word.upper()
+
+
+def hangman_instructions():
+    """
+    Function to display the instructions of the game.
+    Allows user to go back to main menu by pressing enter.
+    """
+
