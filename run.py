@@ -18,15 +18,6 @@ def welcome_message():
     print('Press 3 to choose difficulty(easy,medium,hard)')
 
 
-def run_game_options():
-    """
-    This function will show the start view and let the player 
-    choose to either start the game, see the rules or set difficulty.
-    """
-
-    print(welcome_message())
-
-
 def display_hangman(tries):
     """
     Hangman images that changes if/when the player guesses the wrong letter.
