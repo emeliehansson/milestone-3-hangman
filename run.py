@@ -1,7 +1,9 @@
+import random
+from words import word_list
 
 
 def welcome_message():
-    
+
     """
     Welcomes the user to the game and then asks for their name/username.
     To start the game, press any key.
@@ -18,10 +20,15 @@ def welcome_message():
     print('Press 3 to choose difficulty(easy,medium,hard)')
 
 
+def get_word():
+    word = random.choice(word_list)
+    return word.upper()
+
+
 def display_hangman(tries):
     """
     Hangman images that changes if/when the player guesses the wrong letter.
-    If the player guesses a correct letter, the image stays the same. 
+    If the player guesses a correct letter, the image stays the same.
     """
 
     stages = [  # final state: head, torso, both arms, and both legs
@@ -126,5 +133,4 @@ def display_hangman(tries):
         """
         """
     ]
-    
     return stages[tries]
