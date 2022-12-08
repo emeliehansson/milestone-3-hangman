@@ -1,4 +1,4 @@
-import random
+
 
 def welcome_message():
     
@@ -6,64 +6,59 @@ def welcome_message():
     Welcomes the user to the game and then asks for their name/username.
     To start the game, press any key.
     """
-    print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█   ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
-    print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░   ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
-
+    print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█')
+    print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░')
+    print('\n')
+    print(' ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
+    print(' ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
+    print('\n')
 
     print('Press 1 to start new game')
     print('Press 2 for the rules')
     print('Press 3 to choose difficulty(easy,medium,hard)')
 
-print(welcome_message())
 
-def hangman_lives(lives):
+def run_game_options():
     """
-    Hangman images that changes if/when the player guesses the wrong letter"
+    This function will show the start view and let the player 
+    choose to either start the game, see the rules or set difficulty.
     """
 
-    remaining_lives = [
+    print(welcome_message())
+
+
+def display_hangman(tries):
+    """
+    Hangman images that changes if/when the player guesses the wrong letter.
+    If the player guesses a correct letter, the image stays the same. 
+    """
+
+    stages = [  # final state: head, torso, both arms, and both legs
         """
-        |
-        |
-        |
-        |
-        |\\
-        ========
-        """,
-        """
-        |/
-        |
-        |
-        |
-        |
-        |\\
-        ========
-        """,
-        """
-        __________
-        |/
-        |
-        |
-        |
-        |
-        |\\
-        ========
-        """,
-        """
-         __________
+        ___________
         |/        |
         |         O
-        |
-        |
-        |
-        |\\
-        ========
-        """,
-        """
-        __________
-        |/        |
-        |         O
+        |        /|\\
         |         |
+        |        / \\
+        |\\
+        ========
+        """,
+        """
+        ___________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |        /
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |        /|\\
         |         |
         |
         |\\
@@ -83,34 +78,62 @@ def hangman_lives(lives):
         __________
         |/        |
         |         O
-        |        /|\\
+        |         |
         |         |
         |
         |\\
         ========
         """,
-         """
-        ___________
+        """
+        __________
         |/        |
         |         O
-        |        /|\\
-        |         |
-        |        /
+        |
+        |
+        |
         |\\
         ========
         """,
         """
-        ___________
-        |/        |
-        |         O
-        |        /|\\
-        |         |
-        |        / \\
+        __________
+        |/
+        |
+        |
+        |
+        |
         |\\
+        ========
+        """,
+        """
+        __________
+        |/
+        |
+        |
+        |
+        |
+        |
+        ========
+        """,
+        """
+        |/
+        |
+        |
+        |
+        |
+        |
+        ========
+        """,
+
+        """
+        |
+        |
+        |
+        |
+        |
         ========
         """,
         """
         """
     ]
-
-    return hangman_lives(lives)
+    
+    return stages[tries]
