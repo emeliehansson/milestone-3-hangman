@@ -142,7 +142,6 @@ def play_options():
     also gives the player the different options to choose from.
     User choice is displayed in the welcome message function.
     """
-    print(welcome_message())
 
     start = False
 
