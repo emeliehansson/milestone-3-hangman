@@ -25,7 +25,7 @@ def welcome_message():
     print('Press 3 to choose difficulty')
 
 
-def display_hangman(tries):
+def display_hangman(lives):
     """
     Hangman images that changes if/when the player guesses the wrong letter.
     If the player guesses a correct letter, the image stays the same.
@@ -133,7 +133,7 @@ def display_hangman(tries):
         """
         """
     ]
-    return stages[tries]
+    return stages[lives]
 
 
 def play_options():
@@ -206,7 +206,62 @@ def run_game(word, difficulty_lives):
     print(f'\nRemaining Lives: {lives}\n')
     print('💭 What country are we looking for? '+' '.join(word_to_guess) + '\n')
 
+    while not game_over and lives > 0:
+        input_guess = ('Please guess a letter: \n').upper()
+        try:
+            if len(input_guess) > 1:
+                raise ValueError(
+                    f"\nYou can't guess more than one letter at a time."
+                    f'You guessed: {len(input_guess)}'
+                )
+            elif not input_guess.isalpha():
+                raise ValueError(
+                    f'\nYou can only guess by letters.'
+                    f'You guessed: {input_guess}'
+                )
+            elif len(input_guess) == 1 and input_guess.isalpha():
+                if input_guess in guesses:
+                    raise ValueError(
+                        f'\n{input_guess} has already been used.'
+                    )
+            elif input_guess not in word:
+                print(f'Sorry.. {input_guess} is not a part of the word.')
+                print('Better luck next time, unfortunately you lost a life..')
+                guesses.append(input_guess)
+                lives -= 1
+            else:
+                print(f'\nYay! {input_guess} is a part of the word, nice job!')
+                guesses.append(input_guess)
+                guessed_words = list(word_to_guess)
+                indices = [i for i, letter in enumerate(word)
+                           if letter == input_guess]
+                for index in indices:
+                    guessed_words[index] = input_guess
+                    word_to_guess = ''.join(guessed_words)
+                if '﹍' not in word_to_guess:
+                    game_over = True
+        except ValueError as input_error:
+            print(f'{input_error}\n Please try again.\n')
+            continue
 
+        print(display_hangman(lives))
+
+        if lives > 0:
+            print(f'\nRemaining tries: {lives}')
+            print('💭 What country are we looking for?' 
+                  '+' '.join(word_to_guess) + ')
+            print('Your guesses: '+', '.join(guesses) + '\n')
+
+    if game_over:
+        print(f'NICE! You guessed the word: {word}')
+    else:
+        print('Oh no... 😵 You have no more lives left.')
+        print('Game over.\n')
+        print(f'The word we were looking for was: {word}')
+
+    restart_game(difficulty_lives)
+
+        
 def how_to_play():
     """
     Function to display the instructions of the game.
