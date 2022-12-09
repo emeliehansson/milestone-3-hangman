@@ -21,7 +21,7 @@ def welcome_message():
     print('\n')
 
     print('Press 1 to start new game')
-    print('Press 2 for the rules')
+    print('Press 2 for the instructions')
     print('Press 3 to choose difficulty')
 
 
@@ -152,7 +152,7 @@ def play_options():
             start = True
             difficulty = 'default'
             return difficulty
-        
+
         elif choice == '2':
             start = True
             how_to_play()
@@ -161,7 +161,39 @@ def play_options():
             start = True
 
         else:
-            print('Please select either 1, 2 or 3 to continue!')
+            print('Please select either 1, 2 or 3 to continue! ☆')
+
+
+def game_levels():
+    """
+    Function to select what level(difficulty) the player wants for the game.
+    Take it easy on me... 😴 (Press A)
+    Give me a challenge! 😬 (Press B)
+    I feel confident! 😎 (Press C)
+    """
+    print('\n')
+
+    difficulty = False
+
+    while not difficulty:
+        option = input('\n').upper()
+        if option == 'A':
+            difficulty = True
+            difficulty_lives = 12
+            return difficulty_lives
+
+        elif option == 'B':
+            difficulty = True
+            difficulty_lives = 7
+            return difficulty_lives
+
+        elif option == 'C':
+            difficulty = True
+            difficulty_lives = 4
+            return difficulty_lives
+
+        else:
+            print('\n Please select a difficulty by pressing A, B or C.')
 
 
 def how_to_play():
@@ -185,7 +217,11 @@ def main():
     Start the application and run the main function.
     """
     welcome_message()
+    difficulty = play_options()
+    if difficulty == 'default':
+        difficulty_lives = 7
+    else:
+        difficulty_lives = game_levels()
 
 
 main()
-
