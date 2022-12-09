@@ -288,6 +288,8 @@ def main():
         difficulty_lives = 7
     else:
         difficulty_lives = game_levels()
+    hangman_word = get_word()
+    run_game(hangman_word, difficulty_lives)
 
 
 main()
