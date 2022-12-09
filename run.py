@@ -214,21 +214,25 @@ def run_game(word, difficulty_lives):
                     f"\nYou can't guess more than one letter at a time."
                     f'You guessed: {len(input_guess)}'
                 )
+
             elif not input_guess.isalpha():
                 raise ValueError(
                     f'\nYou can only guess by letters.'
                     f'You guessed: {input_guess}'
                 )
+
             elif len(input_guess) == 1 and input_guess.isalpha():
                 if input_guess in guesses:
                     raise ValueError(
                         f'\n{input_guess} has already been used.'
                     )
+
             elif input_guess not in word:
                 print(f'Sorry.. {input_guess} is not a part of the word.')
                 print('Better luck next time, unfortunately you lost a life..')
                 guesses.append(input_guess)
                 lives -= 1
+
             else:
                 print(f'\nYay! {input_guess} is a part of the word, nice job!')
                 guesses.append(input_guess)
@@ -240,6 +244,7 @@ def run_game(word, difficulty_lives):
                     word_to_guess = ''.join(guessed_words)
                 if '﹍' not in word_to_guess:
                     game_over = True
+
         except ValueError as input_error:
             print(f'{input_error}\n Please try again.\n')
             continue
@@ -248,7 +253,7 @@ def run_game(word, difficulty_lives):
 
         if lives > 0:
             print(f'\nRemaining tries: {lives}')
-            print('💭 What country are we looking for?' 
+            print('💭 What country are we looking for?'
                   '+' '.join(word_to_guess) + ')
             print('Your guesses: '+', '.join(guesses) + '\n')
 
@@ -261,7 +266,35 @@ def run_game(word, difficulty_lives):
 
     restart_game(difficulty_lives)
 
-        
+
+def restart_game(difficulty_lives):
+    """
+    When the game is over, the player is offered the choice to start a new
+    game right away or they can choose to return to the main menu.
+    """
+    reset_game = False
+    while not reset_game:
+        restart = input('Would you like to try again? Y/N 🤖 \n').upper()
+        try:
+            if restart == 'Y':
+                reset_game = True
+                hangman_word = get_word()
+                run_game(hangman_word, difficulty_lives)
+
+            elif restart == 'N':
+                reset_game = True
+                print('\n')
+                main()
+
+            else:
+                raise ValueError(
+                    f'You have to enter either Y or N. You entered {restart}'
+                )
+
+        except ValueError as input_error:
+            print(f'\n{input_error} is not valid. Try again.\n')
+
+
 def how_to_play():
     """
     Function to display the instructions of the game.
@@ -273,7 +306,7 @@ def how_to_play():
           'countries. A correct guess will reveal a letter and a wrong.\n'
           'guess will take away a life. Good luck & have fun!')
     print('\n')
-    input('Press enter to go back to the main menu.')
+    input('Press enter to go back to the main menu.\n')
     print('\n')
     main()
 
