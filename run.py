@@ -195,6 +195,18 @@ def game_levels():
             print('\n Please select a difficulty by pressing A, B or C.')
 
 
+def run_game(word, difficulty_lives):
+    """
+    Runs the game and starts all the gameplay logic.
+    """
+    word_to_guess = '﹍' * len(word)
+    game_over = False
+    guesses = []
+    lives = difficulty_lives
+    print(f'\nRemaining Lives: {lives}\n')
+    print('💭 What country are we looking for? '+' '.join(word_to_guess) + '\n')
+
+
 def how_to_play():
     """
     Function to display the instructions of the game.
@@ -202,10 +214,10 @@ def how_to_play():
     """
     print('\n')
     print('Your task in this game is to guess the hidden word behind the\n'
-          'blank spaces. In this hangman game the theme is European\n'
-          'countries. A correct guess will reveal a letter in the name.\n'
-          'A wrong guess will take away a life. Good luck & have fun!')
-
+          'blank spaces. In this Hangman game the theme is European\n'
+          'countries. A correct guess will reveal a letter and a wrong.\n'
+          'guess will take away a life. Good luck & have fun!')
+    print('\n')
     input('Press enter to go back to the main menu.')
     print('\n')
     main()
