@@ -7,24 +7,6 @@ def get_word():
     return word.upper()
 
 
-def welcome_message():
-
-    """
-    Welcomes the user to the game and then asks for their name/username.
-    To start the game, press any key.
-    """
-    print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█')
-    print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░')
-    print('\n')
-    print(' ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
-    print(' ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
-    print('\n')
-
-    print('Press 1 to start new game')
-    print('Press 2 for the instructions')
-    print('Press 3 to choose difficulty')
-
-
 def display_hangman(lives):
     """
     Hangman images that changes if/when the player guesses the wrong letter.
@@ -136,6 +118,24 @@ def display_hangman(lives):
     return stages[lives]
 
 
+def welcome_message():
+
+    """
+    Welcomes the user to the game and then asks for their name/username.
+    To start the game, press any key.
+    """
+    print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█')
+    print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░')
+    print('\n')
+    print(' ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
+    print(' ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
+    print('\n')
+
+    print('Press 1 to start new game')
+    print('Press 2 for the instructions')
+    print('Press 3 to choose difficulty')
+
+
 def play_options():
     """
     Startup view, shows the "are you ready to play hangman?!" text and
@@ -151,14 +151,11 @@ def play_options():
             start = True
             difficulty = 'default'
             return difficulty
-
-        elif choice == '2':
+        if choice == '2':
             start = True
             how_to_play()
-
         elif choice == '3':
             start = True
-
         else:
             print('Please select either 1, 2 or 3 to continue! ☆')
 
@@ -166,40 +163,43 @@ def play_options():
 def game_levels():
     """
     Function to select what level(difficulty) the player wants for the game.
-    Take it easy on me... 😴 (Press A)
-    Give me a challenge! 😬 (Press B)
-    I feel confident! 😎 (Press C)
+    Take it easy on me... 😴 (Press E)
+    Give me a challenge! 😬 (Press M)
+    I feel confident! 😎 (Press H)
     """
-    print('\n')
+    print("\n")
+    print("Please select a difficulty\n")
+    print('Take it easy on me... 😴 (Press E)')
+    print('Give me a challenge! 😬 (Press M)')
+    print('I feel confident! 😎 (Press H)')
 
     difficulty = False
 
     while not difficulty:
         option = input('\n').upper()
-        if option == 'A':
+        if option == 'E':
             difficulty = True
-            difficulty_lives = 12
+            difficulty_lives = 10
             return difficulty_lives
 
-        elif option == 'B':
+        if option == 'M':
             difficulty = True
             difficulty_lives = 7
             return difficulty_lives
 
-        elif option == 'C':
+        if option == 'H':
             difficulty = True
             difficulty_lives = 4
             return difficulty_lives
 
-        else:
-            print('\n Please select a difficulty by pressing A, B or C.')
+    print('\n Please select a difficulty by pressing E, M or H.')
 
 
 def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
-    word_to_guess = '﹍' * len(word)
+    word_to_guess = '' * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
@@ -215,19 +215,19 @@ def run_game(word, difficulty_lives):
                     f'You guessed: {len(input_guess)}'
                 )
 
-            elif not input_guess.isalpha():
+            if not input_guess.isalpha():
                 raise ValueError(
                     f'\nYou can only guess by letters.'
                     f'You guessed: {input_guess}'
                 )
 
-            elif len(input_guess) == 1 and input_guess.isalpha():
+            if len(input_guess) == 1 and input_guess.isalpha():
                 if input_guess in guesses:
                     raise ValueError(
                         f'\n{input_guess} has already been used.'
                     )
 
-            elif input_guess not in word:
+            if input_guess not in word:
                 print(f'Sorry.. {input_guess} is not a part of the word.')
                 print('Better luck next time, unfortunately you lost a life..')
                 guesses.append(input_guess)
@@ -242,9 +242,8 @@ def run_game(word, difficulty_lives):
                 for index in indices:
                     guessed_words[index] = input_guess
                     word_to_guess = ''.join(guessed_words)
-                if '﹍' not in word_to_guess:
+                if '' not in word_to_guess:
                     game_over = True
-
         except ValueError as input_error:
             print(f'{input_error}\n Please try again.\n')
             continue
