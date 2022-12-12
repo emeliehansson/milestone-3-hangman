@@ -199,19 +199,19 @@ def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
-    word_to_guess = '' * len(word)
+    word_to_guess = '_' * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
     print(f'\nRemaining Lives: {lives}\n')
-    print('💭 What country are we looking for? '+' '.join(word_to_guess) + '\n')
+    print(f'\n💭 What country are we looking for? {word_to_guess} \n')
 
     while not game_over and lives > 0:
-        input_guess = ('Please guess a letter: \n').upper()
+        input_guess = input('Please guess a letter: \n').upper()
         try:
             if len(input_guess) > 1:
                 raise ValueError(
-                    f"\nYou can't guess more than one letter at a time."
+                    f'\nYou can only guess one letter at a time.'
                     f'You guessed: {len(input_guess)}'
                 )
 
@@ -242,7 +242,7 @@ def run_game(word, difficulty_lives):
                 for index in indices:
                     guessed_words[index] = input_guess
                     word_to_guess = ''.join(guessed_words)
-                if '' not in word_to_guess:
+                if '_' not in word_to_guess:
                     game_over = True
         except ValueError as input_error:
             print(f'{input_error}\n Please try again.\n')
@@ -252,8 +252,7 @@ def run_game(word, difficulty_lives):
 
         if lives > 0:
             print(f'\nRemaining tries: {lives}')
-            print('💭 What country are we looking for?'
-                  '+' '.join(word_to_guess) + ')
+            print(f'\n💭 What country are we looking for? {word_to_guess} \n')
             print('Your guesses: '+', '.join(guesses) + '\n')
 
     if game_over:
@@ -302,7 +301,7 @@ def how_to_play():
     print('\n')
     print('Your task in this game is to guess the hidden word behind the\n'
           'blank spaces. In this Hangman game the theme is European\n'
-          'countries. A correct guess will reveal a letter and a wrong.\n'
+          'countries. A correct guess will reveal a letter and a wrong\n'
           'guess will take away a life. Good luck & have fun!')
     print('\n')
     input('Press enter to go back to the main menu.\n')
