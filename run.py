@@ -197,7 +197,7 @@ def run_game(word, difficulty_lives):
     guesses = []
     lives = difficulty_lives
     print(f'\nRemaining Lives: {lives}\n')
-    print(f'\n💭 What country are we looking for? {word_to_guess} \n')
+    print(f'\n💭  What country are we looking for? {word_to_guess} \n')
 
     while not game_over and lives > 0:
         input_guess = input('Please guess a letter: \n').upper()
@@ -245,7 +245,7 @@ def run_game(word, difficulty_lives):
 
         if lives > 0:
             print(f'\nRemaining tries: {lives}')
-            print(f'\n💭 What country are we looking for? {word_to_guess} \n')
+            print(f'\n💭  What country are we looking for? {word_to_guess} \n')
             print('Your guesses: '+', '.join(guesses) + '\n')
 
     if game_over:
