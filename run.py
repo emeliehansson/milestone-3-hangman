@@ -192,7 +192,7 @@ def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
-    word_to_guess = '_' * len(word)
+    word_to_guess = '_ ' * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
@@ -235,7 +235,7 @@ def run_game(word, difficulty_lives):
                 for index in indices:
                     guessed_words[index] = input_guess
                     word_to_guess = ''.join(guessed_words)
-                if '_' not in word_to_guess:
+                if '_ ' not in word_to_guess:
                     game_over = True
         except ValueError as input_error:
             print(f'{input_error}\n Please try again.\n')
