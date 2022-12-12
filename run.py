@@ -165,13 +165,11 @@ def game_levels():
     Function to select what level(difficulty) the player wants for the game.
     Take it easy on me... 😴 (Press E)
     Give me a challenge! 😬 (Press M)
-    I feel confident! 😎 (Press H)
     """
     print("\n")
     print("Please select a difficulty\n")
     print('Take it easy on me... 😴 (Press E)')
-    print('Give me a challenge! 😬 (Press M)')
-    print('I feel confident! 😎 (Press H)')
+    print('Give me a challenge! 😬 (Press H)')
 
     difficulty = False
 
@@ -182,17 +180,12 @@ def game_levels():
             difficulty_lives = 10
             return difficulty_lives
 
-        if option == 'M':
-            difficulty = True
-            difficulty_lives = 7
-            return difficulty_lives
-
         if option == 'H':
             difficulty = True
-            difficulty_lives = 4
+            difficulty_lives = 6
             return difficulty_lives
 
-    print('\n Please select a difficulty by pressing E, M or H.')
+    print('\n Please select a difficulty by pressing E or H.')
 
 
 def run_game(word, difficulty_lives):
@@ -316,7 +309,7 @@ def main():
     welcome_message()
     difficulty = play_options()
     if difficulty == 'default':
-        difficulty_lives = 7
+        difficulty_lives = 6
     else:
         difficulty_lives = game_levels()
     hangman_word = get_word()
