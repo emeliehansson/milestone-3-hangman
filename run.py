@@ -164,12 +164,12 @@ def game_levels():
     """
     Function to select what level(difficulty) the player wants for the game.
     Take it easy on me... 😴 (Press E)
-    Give me a challenge! 😬 (Press M)
+    I'm up for a challenge! 😬 (Press H)
     """
     print("\n")
     print("Please select a difficulty\n")
     print('Take it easy on me... 😴 (Press E)')
-    print('Give me a challenge! 😬 (Press H)')
+    print("I'm up for a challenge! 😬 (Press H)")
 
     difficulty = False
 
