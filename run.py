@@ -163,13 +163,15 @@ def play_options():
 def game_levels():
     """
     Function to select what level(difficulty) the player wants for the game.
-    Take it easy on me... 😴 (Press E)
-    I'm up for a challenge! 😬 (Press H)
+    Take it easy on me... 😴 (Press E (easy))
+    I'm up for a challenge! 😬 (Press M (medium))
+    'I feel confident! 😎 (Press H (hard))
     """
     print("\n")
     print("Please select a difficulty\n")
     print('Take it easy on me... 😴 (Press E)')
-    print("I'm up for a challenge! 😬 (Press H)")
+    print("I'm up for a challenge! 😬 (Press M)")
+    print('I feel confident! 😎 (Press H)')
 
     difficulty = False
 
@@ -177,22 +179,27 @@ def game_levels():
         option = input('\n').upper()
         if option == 'E':
             difficulty = True
-            difficulty_lives = 8
+            difficulty_lives = 10
+            return difficulty_lives
+
+        if option == 'M':
+            difficulty = True
+            difficulty_lives = 7
             return difficulty_lives
 
         if option == 'H':
             difficulty = True
-            difficulty_lives = 5
+            difficulty_lives = 4
             return difficulty_lives
 
-    print('\n Please select a difficulty by pressing E or H.')
+    print('\n Please select a difficulty by pressing E, M or H.')
 
 
 def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
-    word_to_guess = '_ ' * len(word)
+    word_to_guess = '_' * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
@@ -235,7 +242,7 @@ def run_game(word, difficulty_lives):
                 for index in indices:
                     guessed_words[index] = input_guess
                     word_to_guess = ''.join(guessed_words)
-                if '_ ' not in word_to_guess:
+                if '_' not in word_to_guess:
                     game_over = True
         except ValueError as input_error:
             print(f'{input_error}\n Please try again.\n')
@@ -253,7 +260,7 @@ def run_game(word, difficulty_lives):
     else:
         print('Oh no... 😵 You have no more lives left.')
         print('Game over.\n')
-        print(f'The word we were looking for was: {word}')
+        print(f'The country we were looking for was: {word}')
 
     restart_game(difficulty_lives)
 
@@ -309,7 +316,7 @@ def main():
     welcome_message()
     difficulty = play_options()
     if difficulty == 'default':
-        difficulty_lives = 8
+        difficulty_lives = 7
     else:
         difficulty_lives = game_levels()
     hangman_word = get_word()
