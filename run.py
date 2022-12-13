@@ -179,12 +179,12 @@ def game_levels():
         option = input('\n').upper()
         if option == 'E':
             difficulty = True
-            difficulty_lives = 10
+            difficulty_lives = 9
             return difficulty_lives
 
         if option == 'M':
             difficulty = True
-            difficulty_lives = 7
+            difficulty_lives = 6
             return difficulty_lives
 
         if option == 'H':
@@ -316,7 +316,7 @@ def main():
     welcome_message()
     difficulty = play_options()
     if difficulty == 'default':
-        difficulty_lives = 7
+        difficulty_lives = 6
     else:
         difficulty_lives = game_levels()
     hangman_word = get_word()
