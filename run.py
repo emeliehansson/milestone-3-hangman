@@ -212,13 +212,13 @@ def run_game(word, difficulty_lives):
             if len(input_guess) > 1:
                 raise ValueError(
                     f'\nYou can only guess one letter at a time.'
-                    f'You guessed: {len(input_guess)}'
+                    f'\nYou guessed: {len(input_guess)}\n'
                 )
 
             if not input_guess.isalpha():
                 raise ValueError(
                     f'\nYou can only guess by letters.'
-                    f'You guessed: {input_guess}'
+                    f'\nYou guessed: {input_guess}\n'
                 )
 
             if len(input_guess) == 1 and input_guess.isalpha():
@@ -258,7 +258,7 @@ def run_game(word, difficulty_lives):
     if game_over:
         print(f'NICE! You guessed the word: {word}')
     else:
-        print('Oh no... 😵 You have no more lives left.')
+        print('Oh no... 😵You have no more lives left.')
         print('Game over.\n')
         print(f'The country we were looking for was: {word}')
 
