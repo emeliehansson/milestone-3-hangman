@@ -245,7 +245,7 @@ def run_game(word, difficulty_lives):
                 if '_' not in word_to_guess:
                     game_over = True
         except ValueError as input_error:
-            print(f'{input_error}\n Please try again.\n')
+            print(f'{input_error}\nPlease try again.\n')
             continue
 
         print(display_hangman(lives))
