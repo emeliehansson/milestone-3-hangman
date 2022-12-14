@@ -128,6 +128,7 @@ In the future I would like to improve the game by adding the following features:
 ## Testing
 ---
 ### **PEP8 Validator**
+![PEP8 Validator](readme-assets/PEP8%20Validator.png)
 
 ### **Known Bugs**
 None.
@@ -154,19 +155,21 @@ This game has been built with Python.
     - Choose the project you wish to deploy in the "App connected to GitHub" section below.
     - Enable Automatic deploys.
 
+The live deployment can be found here: [Hangman](https://milestone3-hangman.herokuapp.com/)
+
 ### **Local Development**
 
 #### How to Fork
-To fork my repository:
+- To fork my repository:
 
-Login (or sign up) to GitHub.
-Go to the repository for this project here
-Click the Fork button in the top right corner.
+    Login (or sign up) to GitHub.
+    Go to the repository for this project here
+    Click the Fork button in the top right corner.
 
 #### How to Clone
-If you wish to clone my project, please see the following steps below:
+- If you wish to clone my project, please see the following steps below:
 
-Navigate to GitHub: https://github.com/emeliehansson/milestone-3-hangman Select the 'Clone' button Copy the URL or download it as a ZIP file Use git clone + the URL in your terminal, or unpack the ZIP containing the project.
+    Navigate to GitHub: https://github.com/emeliehansson/milestone-3-hangman Select the 'Clone' button Copy the URL or download it as a ZIP file Use git clone + the URL in your terminal, or unpack the ZIP containing the project.
 
 &nbsp; 
 
