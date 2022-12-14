@@ -44,7 +44,9 @@ Good luck & have fun!
 
 ## The Plan
 ---
+This game was created for poeple of all ages that would like a fun game that is challenging with different difficulties. I wanted it to be an easy game to navigate through for both returning visitors as well as new ones. It should be clear for the player what options they have when the enter the game. 
 
+&nbsp;
 Before starting to build the game I made a plan of how I wanted it to work. To do this in a way that looked good and was easy to navigate I created a flowchart with the help of [diagrams.net](https://www.diagrams.net/).
 
 &nbsp;
@@ -128,6 +130,9 @@ In the future I would like to improve the game by adding the following features:
 ## Testing
 ---
 ### **PEP8 Validator**
+Manual testing was performed throughout the project, testing each new element to find and squash any bugs. The full functionality has been tested, and I’ve tried breaking the application too by entering wrong data. All code has been validated online using the PEP8 Validator online: https://pep8ci.herokuapp.com/, and no errors are reported.
+
+&nbsp;
 ![PEP8 Validator](readme-assets/PEP8%20Validator.png)
 
 ### **Known Bugs**
@@ -141,7 +146,20 @@ None.
 
 ## Technologies Used
 ---
-This game has been built with Python.
+- [HTML 5.2. - W3C Recommendation, 14 December 2017](https://html.spec.whatwg.org/multipage/)
+    - The project uses HTML 5 to create the content.
+
+- [CSS 3 CSS - Snapshot 2018 W3C Working Group Note, 22 January 2019](https://www.w3.org/TR/css-2018/)
+    - The project uses CSS 3 to style the content and provide the layout.
+
+- [Python](https://www.python.org/)
+    - An interpreted, high-level, and general-purpose programming language.
+
+- [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+    - Using the GitPod Full Template from the Code Institute for my project.
+
+- [GitHub](https://github.com/)
+    - Project repository.
 
 &nbsp; 
 
@@ -189,5 +207,3 @@ I have also watched a video that helped me understand how to start this project:
 - [Fsymbols](https://fsymbols.com/generators/carty/) was used to style the title "Are you ready to play Hangman?!". 
 - The imagery for the Hangman that shows when the player makes a wrong guess was borrowed from [gibbo101](https://github.com/gibbo101/hangman).
 - The flowchart was made with [diagrams.net](https://www.diagrams.net/).
-
-### **Acknowledgements**
