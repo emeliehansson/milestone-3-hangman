@@ -33,7 +33,6 @@ word_list = [
     'Portugal',
     'Romania',
     'Russia',
-    'SanMarino',
     'Serbia',
     'Slovakia',
     'Slovenia',
@@ -41,5 +40,4 @@ word_list = [
     'Sweden',
     'Switzerland',
     'Ukraine',
-    'UnitedKingdom'
 ]

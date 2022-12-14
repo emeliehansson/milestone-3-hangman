@@ -261,7 +261,7 @@ def run_game(word, difficulty_lives):
     if game_over:
         print(f'NICE! You guessed the word: {word}')
     else:
-        print('Oh no... 😵You have no more lives left.')
+        print('Oh no... 😵 You have no more lives left.')
         print('Game over.\n')
         print(f'The country we were looking for was: {word}')
 
