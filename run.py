@@ -11,6 +11,9 @@ def display_hangman(lives):
     """
     Hangman images that changes if/when the player guesses the wrong letter.
     If the player guesses a correct letter, the image stays the same.
+
+    The code for the imagery below of Hangman is borrowed from
+    another student: nicolemne.
     """
 
     stages = [  # final state: head, torso, both arms, and both legs
