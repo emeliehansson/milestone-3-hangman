@@ -1,4 +1,4 @@
-word_list = [
+countries_list = [
     'Albania',
     'Andorra',
     'Austria',
