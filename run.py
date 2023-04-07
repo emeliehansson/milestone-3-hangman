@@ -2,18 +2,23 @@ import random
 from countries import countries_list
 from cars import cars_list
 from animals import animal_list
+from female_artists import artist_list
 
 
 def get_word():
-    category = input("Please choose a category (countries, animals, cars): \n")
+    category = input('Please choose a category by pressing any of the'
+                     'following numbers: \n 1. Countries \n 2. Animals'
+                     '\n 3. Car Brands\n 4. Female Artists\n\n')
     category = category.lower()
 
-    if category == "countries":
+    if category == "1":
         word = random.choice(countries_list)
-    elif category == "animals":
+    elif category == "2":
         word = random.choice(animal_list)
-    elif category == "cars":
+    elif category == "3":
         word = random.choice(cars_list)
+    elif category == "4":
+        word = random.choice(artist_list)
     else:
         print("Invalid category. Defaulting to countries.")
         word = random.choice(countries_list)
@@ -137,8 +142,8 @@ def display_hangman(lives):
 def welcome_message():
 
     """
-    Welcomes the user to the game and then asks for their name/username.
-    To start the game, press any key.
+    Welcomes the user to the game and then asks for a username.
+    Then it asks the user to choose 1, 2 or 3.
     """
     print('▄▀█ █▀█ █▀▀   █▄█ █▀█ █░█   █▀█ █▀▀ ▄▀█ █▀▄ █▄█')
     print('█▀█ █▀▄ ██▄   ░█░ █▄█ █▄█   █▀▄ ██▄ █▀█ █▄▀ ░█░')
@@ -147,6 +152,10 @@ def welcome_message():
     print(' ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
     print('\n')
 
+    name = input('Please enter a username:\n')
+    print('\n')
+    print(f'Hello {name}, good luck and have fun!')
+    print('\n')
     print('Press 1 to start new game')
     print('Press 2 for the instructions')
     print('Press 3 to choose difficulty')
@@ -211,7 +220,7 @@ def game_levels():
     print('\n Please select a difficulty by pressing E, M or H.')
 
 
-def run_game(word, difficulty_lives, category):
+def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
@@ -219,16 +228,9 @@ def run_game(word, difficulty_lives, category):
     game_over = False
     guesses = []
     lives = difficulty_lives
-    print(f'\nRemaining Lives: {lives}\n')
+    print(f'\n Remaining Lives: {lives}\n')
 
-    if category == 'animals':
-        print(f'\n💭  Guess the animal! {word_to_guess} \n')
-    elif category == 'cars':
-        print(f'\n💭  Guess the car brand! {word_to_guess} \n')
-    elif category == 'countries':
-        print(f'\n💭  Guess the European country! {word_to_guess} \n')
-    else:
-        print(f'\n💭  What word are we looking for? {word_to_guess} \n')
+    print(f'\n💭  What word are we looking for? {word_to_guess} \n')
 
     while not game_over and lives > 0:
         input_guess = input('Please guess a letter: \n').upper()
@@ -276,14 +278,7 @@ def run_game(word, difficulty_lives, category):
 
         if lives > 0:
             print(f'\nRemaining tries: {lives}')
-            if category == 'animals':
-                print(f'\n💭  Guess the animal! {word_to_guess}\n')
-            elif category == 'cars':
-                print(f'\n💭  Guess the car brand! {word_to_guess}\n')
-            elif category == 'countries':
-                print(f'\n💭  Guess the European country! {word_to_guess}\n')
-            else:
-                print(f'\n💭  What word are we looking for? {word_to_guess} \n')
+            print(f'\n💭  What word are we looking for? {word_to_guess} \n')
             print('Your guesses: '+', '.join(guesses) + '\n')
 
     if game_over:
@@ -291,7 +286,7 @@ def run_game(word, difficulty_lives, category):
     else:
         print('Oh no... 😵 You have no more lives left.')
         print('Game over.\n')
-        print(f'The country we were looking for was: {word}')
+        print(f'The word we were looking for was: {word}')
 
     restart_game(difficulty_lives)
 
@@ -308,8 +303,7 @@ def restart_game(difficulty_lives):
             if restart == 'Y':
                 reset_game = True
                 hangman_word = get_word()
-                category = 'animals', 'cars', 'countries'
-                run_game(hangman_word, difficulty_lives, category)
+                run_game(hangman_word, difficulty_lives)
 
             elif restart == 'N':
                 reset_game = True
@@ -333,7 +327,7 @@ def how_to_play():
     print('\n')
     print('Your task in this game is to guess the hidden word behind the\n'
           'blank spaces. In this Hangman game the theme is European\n'
-          'countries, animals or car brands.\n'
+          'countries, animals, car brands or female artists.\n'
           'A correct guess will reveal a letter and a wrong\n'
           'guess will take away a life. Good luck & have fun!')
     print('\n')
@@ -353,8 +347,7 @@ def main():
     else:
         difficulty_lives = game_levels()
     hangman_word = get_word()
-    category = 'animals', 'cars', 'countries'
-    run_game(hangman_word, difficulty_lives, category)
+    run_game(hangman_word, difficulty_lives)
 
 
 main()
