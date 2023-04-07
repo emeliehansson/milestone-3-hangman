@@ -1,3 +1,7 @@
+"""
+List of car brands for the car category
+"""
+
 cars_list = [
 
     'Tesla',

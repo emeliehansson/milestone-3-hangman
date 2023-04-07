@@ -1,3 +1,6 @@
+"""
+Importing necessary files for the game
+"""
 import random
 from countries import countries_list
 from cars import cars_list
@@ -6,9 +9,13 @@ from female_artists import artist_list
 
 
 def get_word():
-    category = input('Please choose a category by pressing any of the'
+    """
+    The player will be asked to choose a category by choosing one
+    of the four numbers with the category name.
+    """
+    category = input('\nPlease choose a category by pressing any of the\n'
                      'following numbers: \n 1. Countries \n 2. Animals'
-                     '\n 3. Car Brands\n 4. Female Artists\n\n')
+                     '\n 3. Car Brands\n 4. Female Artists\n')
     category = category.lower()
 
     if category == "1":
@@ -150,11 +157,6 @@ def welcome_message():
     print('\n')
     print(' ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   █░█ ▄▀█ █▄░█ █▀▀ █▀▄▀█ ▄▀█ █▄░█ ▀█ █')
     print(' ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▀█ █░▀█ █▄█ █░▀░█ █▀█ █░▀█ ░▄ ▄')
-    print('\n')
-
-    name = input('Please enter a username:\n')
-    print('\n')
-    print(f'Hello {name}, good luck and have fun!')
     print('\n')
     print('Press 1 to start new game')
     print('Press 2 for the instructions')

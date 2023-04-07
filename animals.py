@@ -1,5 +1,8 @@
+"""
+List of animals for the animal category
+"""
+
 animal_list = [
-    
     'Ant',
     'Antelope',
     'Bat',

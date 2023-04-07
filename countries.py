@@ -1,3 +1,7 @@
+"""
+List of european countries for the countries category
+"""
+
 countries_list = [
     'Albania',
     'Andorra',

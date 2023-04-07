@@ -1,3 +1,7 @@
+"""
+List of female artists for the artist category
+"""
+
 artist_list = [
 
     'Pink',
