@@ -196,9 +196,9 @@ def game_levels():
     """
     print("\n")
     print("Please select a difficulty\n")
-    print('Take it easy on me... 😴 \n10 guesses (Press E)')
-    print("I'm up for a challenge! 😬 \n6 guesses (Press M)")
-    print('I feel confident! 😎 \n4 guesses (Press H)')
+    print('Take it easy on me... 😴 10 guesses (Press E)')
+    print("I'm up for a challenge! 😬 6 guesses (Press M)")
+    print('I feel confident! 😎 4 guesses (Press H)')
 
     difficulty = False
 
@@ -255,6 +255,8 @@ def run_game(word, difficulty_lives):
                         f'\n{input_guess} has already been used.'
                     )
 
+            print(display_hangman(lives))
+
             if input_guess not in word:
                 print(f'Sorry.. {input_guess} is not a part of the word.')
                 print('Better luck next time, unfortunately you lost a life..')
@@ -275,8 +277,6 @@ def run_game(word, difficulty_lives):
         except ValueError as input_error:
             print(f'{input_error}\nPlease try again.\n')
             continue
-
-        print(display_hangman(lives))
 
         if lives > 0:
             print(f'\nRemaining tries: {lives}')
