@@ -17,6 +17,7 @@ Good luck & have fun!
     - [Start-up Page](#start-up-page)
     - [Instructions](#instructions)
     - [Choose Level](#choose-level)
+    - [Choose Category](#choose-category)
     - [Player Win](#player-win)
     - [Player Lose](#player-lose)
     - [If Input is Number](#if-input-is-number)
@@ -77,6 +78,13 @@ Before starting to build the game I made a plan of how I wanted it to work. To d
 ![Choose Level](readme-assets/Set%20difficulty%20Hangman.png)
 
 &nbsp;
+
+### **Choose Category**
+- When the player has chosen either to start a new game with the default difficulty or when they have chosen difficulty, they will be asked to choose a category in the next step. 
+
+![Choose Category](readme-assets/Choose%20category.png)
+&nbsp;
+
 
 ### **Player Win**
 - If the player succeeds to guess the correct country, they will be informed about guessing the right word and offered the opportunity to restart the game right away.

@@ -196,9 +196,9 @@ def game_levels():
     """
     print("\n")
     print("Please select a difficulty\n")
-    print('Take it easy on me... 😴 10 guesses (Press E)')
-    print("I'm up for a challenge! 😬 6 guesses (Press M)")
-    print('I feel confident! 😎 4 guesses (Press H)')
+    print('Take it easy on me... 😴 \n10 guesses (Press E)')
+    print("I'm up for a challenge! 😬 \n6 guesses (Press M)")
+    print('I feel confident! 😎 \n4 guesses (Press H)')
 
     difficulty = False
 
