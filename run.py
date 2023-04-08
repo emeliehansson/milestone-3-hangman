@@ -226,7 +226,7 @@ def run_game(word, difficulty_lives):
     """
     Runs the game and starts all the gameplay logic.
     """
-    word_to_guess = '_' * len(word)
+    word_to_guess = '_ ' * len(word)
     game_over = False
     guesses = []
     lives = difficulty_lives
